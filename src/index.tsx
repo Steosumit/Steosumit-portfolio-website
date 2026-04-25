@@ -15,7 +15,7 @@ app.get("/", (c) => {
           .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 2.5s cubic-bezier(0.5, 0, 0, 1);
+            transition: all 1.5s cubic-bezier(0.5, 0, 0, 1);
           }
           /* Active state: fully visible and in original position */
           .reveal.reveal-active {
@@ -23,9 +23,9 @@ app.get("/", (c) => {
             transform: translateY(0);
           }
           /* Stagger delays for the experience items */
-          .delay-100 { transition-delay: 100ms; }
-          .delay-200 { transition-delay: 200ms; }
-          .delay-300 { transition-delay: 300ms; }
+          .delay-100 { transition-delay: 300ms; }
+          .delay-200 { transition-delay: 500ms; }
+          .delay-300 { transition-delay: 700ms; }
           
           @keyframes blink-animation {
             0% { background-color: white; }
@@ -33,10 +33,28 @@ app.get("/", (c) => {
           }
           
           .blink {
-            animation: blink-animation 1.5s infinite;
+            animation: blink-animation 1.5s 1;
           }
           
+          @keyframes bounceAnimation {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-30px); }
+          }
           
+          .bounce {
+            animation-name: bounceAnimation;
+            animation-duration: 1s;
+            animation-timing-function: ease;
+            animation-iteration-count: 2;
+            animation-direction: normal;
+            animation-fill-mode: both;
+          }
+          
+          /* Animation stagger delays */
+          .anim-delay-100 { animation-delay: 150ms; }
+          .anim-delay-200 { animation-delay: 300ms; }
+          .anim-delay-300 { animation-delay: 450ms; }
+
         `}} />
       </head>
       {/* Swapped slate for warm, paper-like stone colors. Selection highlight is an editorial rose. */}
@@ -56,11 +74,11 @@ app.get("/", (c) => {
           <section class="mb-10 reveal delay-100">
             <h2 class="text-xl font-serif font-semibold text-stone-800">Follow My Journey</h2>
             
-            <div class="flex flex-wrap gap-4 text-sm font-medium text-stone-500 mb-6 mt-6 uppercase tracking-wider blink">
+            <div class="flex flex-wrap gap-4 text-sm font-medium text-stone-500 mb-6 mt-6 uppercase tracking-wider lg:w-max">
               <a
                 href="https://github.com/Steosumit/Steosumit/blob/main/Resume.pdf"
                 target="_blank"
-                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5 bounce anim-delay-100"
               >
                 📄 Resume
               </a>
@@ -68,7 +86,7 @@ app.get("/", (c) => {
               <a
                 href="https://www.linkedin.com/in/steosumit"
                 target="_blank"
-                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5 bounce anim-delay-200"
               >
                 💼 LinkedIn
               </a>
@@ -76,7 +94,7 @@ app.get("/", (c) => {
               <a
                 href="https://medium.com/@steosumit"
                 target="_blank"
-                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5 bounce anim-delay-300"
               >
                 ✍️ Medium
               </a>
@@ -90,19 +108,37 @@ app.get("/", (c) => {
               class="size-full object-cover object-top"
             />
             {/* The Overlay - Always visible initially */}
-            <div id="scroll-overlay" class="absolute inset-0 bg-stone-900/60 flex flex-col items-center justify-center transition-opacity duration-700 z-10 pointer-events-none">
+            <div id="scroll-overlay" class="absolute inset-0 bg-stone-900/60 flex flex-col items-center transition-opacity duration-700 z-10 pointer-events-none">
               
-              <p class="text-stone-100 font-serif text-2xl roboto mb-4">
-                Hi bla bla bla...
-              </p>
+              <div class="absolute top-5 w-full px-4 flex justify-between items-start gap-4 text-stone-100 font-mono text-sm">
+                
+                {/* Left Flex Box */}
+                <div class="text-left max-w-[45%]">
+                  <b>What are my life updates?</b>
+                  <ul>
+                    <li>- Published 4+ software</li>
+                    <li>- Featured on 1 Platform</li>
+                  </ul>
+                </div>
+                
+                {/* Right Flex Box */}
+                <div class="text-right max-w-[45%]">
+                  <b class="">What am I doing now?</b>
+                  <ul>
+                    <li> - Learning AI Security</li>
+                    <li> - Developing AI workflow solutions</li>
+                  </ul>
+                </div>
+              </div>
               
-              <p class="text-stone-100 font-serif text-xs tracking-[0.3em] uppercase">
-                Scroll Down
-              </p>
-              
-              <svg class="w-8 h-8 text-stone-100 mt-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-              </svg>
+              <div class="absolute bottom-1/3 flex flex-col items-center">
+                <p class="text-stone-100 font-mono text-xl uppercase">
+                  Scroll Down
+                </p> 
+                <svg class="w-8 h-8 text-stone-100 mt-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>                
+              </div>
             </div>
           </section>
           
