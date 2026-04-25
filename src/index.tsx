@@ -1,146 +1,262 @@
-import { Hono } from 'hono'
+import { Hono } from "hono";
 
-const app = new Hono()
+const app = new Hono();
 
-app.get('/', (c) => {
+app.get("/", (c) => {
   return c.html(
     <html lang="en">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Sumit| AI Security & Automation</title>
+        <title> Sumit | AI Security & Automation </title>
         <script src="https://cdn.tailwindcss.com"></script>
       </head>
-      <body class="bg-zinc-900 text-stone-200 font-sans p-6 md:p-12 lg:max-w-4xl mx-auto">
-        <header class="mb-10">
-          <h1 class="text-4xl font-bold text-white mb-2">👋 Sumit Gupta</h1>
-          <p class="text-lg text-zinc-400">
-            AI Agentic Systems, Automation, and Web Security
-          </p>
-          <hr class="bg-neutral mt-3 mb-3"></hr>
-          <p class="md:font-semibold">
-            Minimalizing my work life... I enjoy gasping things at low pace to give top level directions to complex problems
-          </p>
+      {/* Swapped slate for warm, paper-like stone colors. Selection highlight is an editorial rose. */}
+      <body class="bg-stone-100 text-stone-800 font-sans antialiased py-8 md:py-12 selection:bg-rose-200 selection:text-rose-900">
+        <main class="max-w-4xl mx-auto bg-[#faf8f5] p-8 md:p-16 rounded-sm shadow-sm border border-stone-300">
+          <header class="mb-10">
+            {/* Name uses a classic serif font */}
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-stone-900 tracking-tight mb-2">
+              Sumit Gupta
+            </h1>
+            {/* Subtitle is italicized like a journal entry */}
+            <pre class="text-xl font-serif italic text-rose-800 mb-4">
+              AI Security & Automation
+            </pre>
+          </header>
+          
+          <section class="mb-10">
+            <h2 class="text-xl font-serif font-semibold text-stone-800">Follow My Journey</h2>
+            
+            <div class="flex flex-wrap gap-4 text-sm font-medium text-stone-500 mb-6 mt-6 uppercase tracking-wider">
+              <a
+                href="https://github.com/Steosumit/Steosumit/blob/main/Resume.pdf"
+                target="_blank"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5"
+              >
+                📄 Resume
+              </a>
+              <span class="text-stone-300">•</span>
+              <a
+                href="https://www.linkedin.com/in/steosumit"
+                target="_blank"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5"
+              >
+                💼 LinkedIn
+              </a>
+              <span class="text-stone-300">•</span>
+              <a
+                href="https://medium.com/@steosumit"
+                target="_blank"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5"
+              >
+                ✍️ Medium
+              </a>
+            </div>
+          </section>
+          
+          
+          <section class="mb-10">
+            <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-6">
+              My Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Project cards look like index cards or neat dossier entries */}
+              <a
+                href="http://github.com/Steosumit/open-multi-agent"
+                target="_blank"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+              >
+                <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
+                  open-multi-agent{" "}
+                  <span class="text-xs font-sans font-medium px-2 py-0.5 border border-stone-200 text-stone-600 rounded">
+                    AI Agents/Security
+                  </span>
+                </h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                  Multi-agent orchestration framwork from scratch leveraging FastAPI,
+                  LangGraph, and local FastMCP. Features Redis-backed memory,
+                  security controls, and end-to-end traceability.
+                </p>
+              </a>
 
+              <a
+                href="http://github.com/Steosumit/GenericNoobAI"
+                target="_blank"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+              >
+                <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
+                  GenericNoobAI{" "}
+                  <span class="text-xs font-sans font-medium px-2 py-0.5 border border-stone-200 text-stone-600 rounded">
+                    AI Agents
+                  </span>
+                </h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                  Multi-modal agent with custom tool integration for web search,
+                  audio analysis, and file I/O, achieving 30% on the GAIA
+                  benchmark test.
+                </p>
+              </a>
 
-        </header>
+              <a
+                href="http://github.com/Steosumit/llm-compare-hub"
+                target="_blank"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+              >
+                <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
+                  llm-compare-hub{" "}
+                  <span class="text-xs font-sans font-medium px-2 py-0.5 border border-stone-200 text-stone-600 rounded">
+                    Prompt Eng
+                  </span>
+                </h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                  Flexible playground for prompt engineering. Features
+                  drag-and-drop prompt patterns, sequence management, and
+                  response matrix evaluation.
+                </p>
+              </a>
 
-        <section class="mb-10">
-          <ul class="space-y-3">
-            <li>🔭 <strong>Currently working on:</strong> AI agentic systems, automation, and web security</li>
-            <li>👯 <strong>Looking to collaborate on:</strong> Anything that involves connecting complex dots</li>
-            <li>🤝 <strong>Looking for help with:</strong> Exploring AI security, automation gaps, risk management, and compliance</li>
-            <li>🌱 <strong>Currently learning:</strong> AI and Web Security, forensics, blue team tools</li>
-            <li>💬 <strong>Ask me about:</strong> Implementing AI/LLM workflow integrations</li>
-          </ul>
-        </section>
+              <a
+                href="http://github.com/Steosumit/loc-based-attendance"
+                target="_blank"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+              >
+                <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
+                  loc-based-attendance{" "}
+                  <span class="text-xs font-sans font-medium px-2 py-0.5 border border-stone-200 text-stone-600 rounded">
+                    Web Dev
+                  </span>
+                </h3>
+                <p class="text-sm text-stone-600 leading-relaxed">
+                  Geolocation validation attendance application designed for
+                  accurate and reliable college attendance tracking.
+                </p>
+              </a>
+            </div>
+          </section>
+          
+          <section class="mb-10">
+            <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-6">
+              My Experience
+            </h2>
 
-        <section class="mb-10 bg-zinc-800 p-6 rounded-lg border border-zinc-700">
-          <h2 class="text-2xl font-semibold text-blue-400 mb-4">⚡ 3 Fun Facts</h2>
-          <ul class="list-disc list-inside space-y-2">
-            <li>I am a VATSIM pilot—real life flight sim network</li>
-            <li>Been journaling for 15+ years now -&gt; book publishing soon</li>
-            <li>On weekends, I'm in CTFs, writing Medium blogs, or chilling</li>
-          </ul>
-        </section>
-
-        <section class="mb-10 flex flex-wrap gap-4">
-          <a href="https://github.com/Steosumit/Steosumit/blob/main/Resume.pdf" target="_blank"><img src="https://img.shields.io/badge/Resume-latest-green?style=for-the-badge" alt="Resume" /></a>
-          <a href="https://medium.com/@steosumit" target="_blank"><img src="https://img.shields.io/badge/Medium-12100E?style=for-the-badge&logo=medium&logoColor=white" alt="Medium" /></a>
-          <a href="https://www.linkedin.com/in/steosumit" target="_blank"><img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>
-        </section>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-10">
-          <section>
-            <h3 class="text-xl font-semibold mb-4 text-white">🔠 Programming Languages</h3>
-            <div class="flex flex-wrap gap-2">
-              <img src="https://img.shields.io/badge/-TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" />
-              <img src="https://img.shields.io/badge/-JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
-              <img src="https://img.shields.io/badge/-Python-306998?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
-              <img src="https://img.shields.io/badge/-C%20%2F%20C%2B%2B-0574fc?style=for-the-badge&logo=c%2b%2b&logoColor=white" alt="C/C++" />
+            <div class="space-y-8 border-l-2 border-stone-200 pl-4 ml-2">
+              <article class="relative">
+                <div class="absolute -left-[23px] top-1.5 w-3 h-3 bg-rose-700 rounded-full border-2 border-[#faf8f5]"></div>
+                <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                  <h3 class="text-xl font-serif font-bold text-stone-900">
+                    Data Analyst Intern
+                  </h3>
+                  <span class="text-rose-800 font-medium text-sm italic">
+                    NFSU, Gandhinagar
+                  </span>
+                </div>
+                <ul class="list-disc pl-5 space-y-2 text-stone-700 leading-relaxed marker:text-stone-400">
+                  <li>
+                    Analyzed 50GB+ Gujarat Government supply chain dataset using Pandas, performing exploratory data analysis to
+                    identify 15 location-driven features and 10 data inconsistent fields impacting downstream processing
+                  </li>
+                  <li>
+                    Engineered 5 new temporal features (distance, transit time, location dependency) and standardized coordinate
+                    formats, improving data quality for anomaly detection workflows
+                  </li>
+                  <li>
+                    Designed anomaly detection pipeline using rolling average, visualized through Matplotlib line charts to detect 10+
+                    abnormal weight shifts in truck sensor data
+                  </li>
+                </ul>
+              </article>
+              
+              <article class="relative">
+                <div class="absolute -left-[23px] top-1.5 w-3 h-3 bg-stone-300 rounded-full border-2 border-[#faf8f5]"></div>
+                <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
+                  <h3 class="text-xl font-serif font-bold text-stone-900">
+                    Development Intern
+                  </h3>
+                  <span class="text-rose-800 font-medium text-sm italic">
+                    NCBitz Technologies Pvt Ltd, Gandhinagar
+                  </span>
+                </div>
+                <ul class="list-disc pl-5 space-y-2 text-stone-700 leading-relaxed marker:text-stone-400">
+                  <li>
+                    Engineered user and vehicle monitoring modules using React and TypeScript for WhiteCarbon ride management
+                    dashboard, developed dynamic form components for user, vehicle, and booking workflows delivered within a 3-week
+                    sprint
+                  </li>
+                  <li>
+                    Integrated Node.js RESTful APIs with React frontend using asynchronous data fetching, reducing data
+                    synchronization latency for search queries to under 10 seconds
+                  </li>
+                  <li>
+                    Conducted end-to-end testing of the ride management dashboard, identifying and resolving 5–10 bugs and
+                    client-requested changes per week
+                  </li>
+                </ul>
+              </article>
+              
+              <article class="relative">
+                <div class="absolute -left-[23px] top-1.5 w-3 h-3 bg-stone-300 rounded-full border-2 border-[#faf8f5]"></div>
+                <div class="flex flex-col md:flex-row md:items-baseline mb-2">
+                  
+                  <div class="flex items-baseline gap-2">
+                    <h3 class="text-xl font-serif font-bold text-stone-900">
+                      Genomic Research Tech Lead
+                    </h3>
+                    <i class="text-stone-500 text-sm">(Ongoing)</i>
+                  </div>
+                
+                  <span class="text-rose-800 font-medium text-sm italic md:ml-auto">
+                    NFSU, Gandhinagar
+                  </span>
+                </div>
+                
+                <ul class="list-disc pl-5 space-y-2 text-stone-700 leading-relaxed marker:text-stone-400">
+                  <li>
+                    Preprocessed over 250GB of genomic data (1000 Genome Project, T2T) to extract Y Chromosomes records using BCFTool and EmEditor
+                  </li>
+                  <li>
+                    Developed python notebooks for VCF to CSV conversion, clustering SNPs as per research requirements, and Linkage Disequilibrium (LD) analysis
+                  </li>
+                  <li>
+                    Implemented genomic matrix calculations and feature selection for downstream analysis
+                  </li>
+                </ul>
+              </article>
             </div>
           </section>
 
           <section>
-            <h3 class="text-xl font-semibold mb-4 text-white">💻 Cloud Experience</h3>
-            <div class="flex flex-wrap gap-2">
-              <img src="https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white" alt="AWS" />
-              <img src="https://img.shields.io/badge/OCI-F80000?style=for-the-badge&logo=oracle&logoColor=white" alt="Oracle Cloud" />
+            <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-4">
+              Certifications & Fun Facts
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-stone-700">
+              <div class="bg-white p-5 rounded-sm border border-stone-200 shadow-sm">
+                <h3 class="font-serif font-bold text-stone-900 mb-3 border-b border-stone-100 pb-2">
+                  Certifications
+                </h3>
+                <ul class="list-disc pl-4 space-y-1.5 marker:text-rose-700">
+                  <li>Oracle Certified 2025 GenAI Professional</li>
+                  <li>Oracle Certified 2025 Data Science Professional</li>
+                  <li>ISC2 Certified in Cybersecurity (Passed)</li>
+                  <li>Leadership as a Practice by <a class="text-rose-700 hover:text-rose-900 underline decoration-rose-200 underline-offset-4" href="https://tiltingfutures.org/global-citizen-year-fellowship/">Tilting Futures</a>(Fellowship)</li>
+                </ul>
+              </div>
+              <div class="bg-white p-5 rounded-sm border border-stone-200 shadow-sm">
+                <h3 class="font-serif font-bold text-stone-900 mb-3 border-b border-stone-100 pb-2">
+                  Beyond the Code
+                </h3>
+                <ul class="list-disc pl-4 space-y-1.5 marker:text-rose-700">
+                  <li>Active VATSIM pilot (real-life flight sim network)</li>
+                  <li>Journaling for 15+ years (book publishing soon)</li>
+                  <li>Weekend CTF player and Medium blogger</li>
+                </ul>
+              </div>
             </div>
           </section>
-        </div>
-
-        <section class="mb-10">
-
-          <h2 class="text-2xl font-semibold border-b border-zinc-700 pb-2 mb-4 text-white">📽️ Projects</h2>
-          <div class="space-y-4">
-            <div>
-              <a href='http://github.com/Steosumit/open-multi-agent'>
-                <h3 class="font-semibold text-blue-400">open-multi-agent</h3>
-              </a>
-              <p class="text-sm text-zinc-400">multi-agent orchestration platform leveraging FastAPI (gateway), LangGraph, and local MCP (FastMCP) featuring
-protocol-agnostic clients, Redis-backed short-term and RAG-based long-term memory, security controls, and
-end-to-end traceability with security first AI orchestration added A2A extension support for OpenClaw
-              </p>
-            </div>
-
-            <div>
-              <a href='http://github.com/Steosumit/GenericNoobAI'>
-                <h3 class="font-semibold text-blue-400">GenericNoobAI</h3>
-              </a>
-              <p class="text-sm text-zinc-400">Multi-modal agent with custom tool integration for web search, audio analysis, read/write, performing 30% on GAIA benchmark test.</p>
-            </div>
-
-            <div>
-              <a href='http://github.com/Steosumit/llm-compare-hub'>
-                <h3 class="font-semibold text-blue-400">llm-compare-hub</h3>
-              </a>
-              <p class="text-sm text-zinc-400">Flexible prompt playground for prompt engineering, drag drop prompt patterns, change prompt sequence, evaluate response matrices.</p>
-            </div>
-
-            <div>
-              <a href='http://github.com/Steosumit/loc-based-attendance'>
-                <h3 class="font-semibold text-blue-400">loc-based-attendance</h3>
-              </a>
-              <p class="text-sm text-zinc-400">Geolocation validation attendance app for college attendance tracking.</p>
-            </div>
-
-          </div>
-        </section>
-
-        <section class="mb-10">
-          <h2 class="text-2xl font-semibold border-b border-zinc-700 pb-2 mb-4 text-white">💼 Experience</h2>
-          <div class="space-y-6">
-            <div>
-              <h3 class="font-semibold text-blue-400 text-lg">Development Intern</h3>
-              <h4><i>NCBitz Technologies Pvt Ltd, Gandhinagar</i></h4>
-              <p class="text-sm text-zinc-300">Designed and refactored Admin dashboard components, integrated served backend data with frontend components, created vehicle, bookings, users, forms, and monitoring pages.</p>
-            </div>
-            <div>
-              <h3 class="font-semibold text-blue-400 text-lg">Data Analyst Intern</h3>
-              <h4><i>NFSU, Gandhinagar</i></h4>
-              <p class="text-sm text-zinc-300">Exploratory data analysis and preprocessing of Gujarat gov. truck supply chain data (50GB). Developed anomaly detection python notebooks, identified 100+ anomalous transactions using graph modeling of weight shifts.</p>
-            </div>
-            <div>
-              <h3 class="font-semibold text-blue-400 text-lg">Genomic Research Tech Lead</h3>
-              <h4><i>NFSU, Gandhinagar</i></h4>
-              <p class="text-sm text-zinc-300">Preprocessed 250GB+ genomic data (1000 Genome Project, T2T) to extract Y Chromosomes; developed notebooks for handling VCF to CSV conversion, clustering SNPs, genomic matrix calculation, and feature selection.</p>
-            </div>
-          </div>
-        </section>
-
-        <section class="mb-10">
-          <h2 class="text-2xl font-semibold border-b border-zinc-700 pb-2 mb-4 text-white">🏅 Certificates</h2>
-          <ul class="list-disc list-inside space-y-1 text-zinc-300">
-            <li>Oracle Certified 2025 GenAI Professional</li>
-            <li>Oracle Certified 2025 Data Science Professional</li>
-            <li>ISC2 Certified in Cybersecurity (Passed)</li>
-          </ul>
-        </section>
-
+        </main>
       </body>
-    </html>
-  )
-})
+    </html>,
+  );
+});
 
-export default app
+export default app;
