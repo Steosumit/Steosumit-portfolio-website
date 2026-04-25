@@ -1,6 +1,7 @@
 "$schema" = "./node_modules/wrangler/config-schema.json"
 name = "portfolio-cloudflare-worker"
 main = "src/index.tsx"
+assets = { "directory" = "assets"}
 
 # Set this to today's date
 compatibility_date = "2026-04-19"

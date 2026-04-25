@@ -10,25 +10,53 @@ app.get("/", (c) => {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title> Sumit | AI Security & Automation </title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style dangerouslySetInnerHTML={{__html: `
+          /* Base state: invisible and shifted down */
+          .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 2.5s cubic-bezier(0.5, 0, 0, 1);
+          }
+          /* Active state: fully visible and in original position */
+          .reveal.reveal-active {
+            opacity: 1;
+            transform: translateY(0);
+          }
+          /* Stagger delays for the experience items */
+          .delay-100 { transition-delay: 100ms; }
+          .delay-200 { transition-delay: 200ms; }
+          .delay-300 { transition-delay: 300ms; }
+          
+          @keyframes blink-animation {
+            0% { background-color: white; }
+            100% { background-color: yellow; }
+          }
+          
+          .blink {
+            animation: blink-animation 1.5s infinite;
+          }
+          
+          
+        `}} />
       </head>
       {/* Swapped slate for warm, paper-like stone colors. Selection highlight is an editorial rose. */}
       <body class="bg-stone-100 text-stone-800 font-sans antialiased py-8 md:py-12 selection:bg-rose-200 selection:text-rose-900">
         <main class="max-w-4xl mx-auto bg-[#faf8f5] p-8 md:p-16 rounded-sm shadow-sm border border-stone-300">
-          <header class="mb-10">
+          <header class="mb-10 reveal">
             {/* Name uses a classic serif font */}
             <h1 class="text-4xl md:text-5xl font-serif font-bold text-stone-900 tracking-tight mb-2">
               Sumit Gupta
             </h1>
             {/* Subtitle is italicized like a journal entry */}
             <pre class="text-xl font-serif italic text-rose-800 mb-4">
-              AI Security & Automation
+              Cybersecurity Student
             </pre>
           </header>
           
-          <section class="mb-10">
+          <section class="mb-10 reveal delay-100">
             <h2 class="text-xl font-serif font-semibold text-stone-800">Follow My Journey</h2>
             
-            <div class="flex flex-wrap gap-4 text-sm font-medium text-stone-500 mb-6 mt-6 uppercase tracking-wider">
+            <div class="flex flex-wrap gap-4 text-sm font-medium text-stone-500 mb-6 mt-6 uppercase tracking-wider blink">
               <a
                 href="https://github.com/Steosumit/Steosumit/blob/main/Resume.pdf"
                 target="_blank"
@@ -55,8 +83,30 @@ app.get("/", (c) => {
             </div>
           </section>
           
+          <section class="mb-10 reveal delay-200 relative group overflow-hidden rounded-sm border border-stone-300">
+            <img 
+              src="/mypic.jpeg" 
+              alt="Sumit Gupta" 
+              class="size-full object-cover object-top"
+            />
+            {/* The Overlay - Always visible initially */}
+            <div id="scroll-overlay" class="absolute inset-0 bg-stone-900/60 flex flex-col items-center justify-center transition-opacity duration-700 z-10 pointer-events-none">
+              
+              <p class="text-stone-100 font-serif text-2xl roboto mb-4">
+                Hi bla bla bla...
+              </p>
+              
+              <p class="text-stone-100 font-serif text-xs tracking-[0.3em] uppercase">
+                Scroll Down
+              </p>
+              
+              <svg class="w-8 h-8 text-stone-100 mt-4 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+              </svg>
+            </div>
+          </section>
           
-          <section class="mb-10">
+          <section class="mb-10 reveal">
             <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-6">
               My Projects
             </h2>
@@ -65,7 +115,7 @@ app.get("/", (c) => {
               <a
                 href="http://github.com/Steosumit/open-multi-agent"
                 target="_blank"
-                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5] reveal delay-100"
               >
                 <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
                   open-multi-agent{" "}
@@ -83,7 +133,7 @@ app.get("/", (c) => {
               <a
                 href="http://github.com/Steosumit/GenericNoobAI"
                 target="_blank"
-                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5] reveal delay-200"
               >
                 <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
                   GenericNoobAI{" "}
@@ -101,7 +151,7 @@ app.get("/", (c) => {
               <a
                 href="http://github.com/Steosumit/llm-compare-hub"
                 target="_blank"
-                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5] reveal delay-300"
               >
                 <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
                   llm-compare-hub{" "}
@@ -119,7 +169,7 @@ app.get("/", (c) => {
               <a
                 href="http://github.com/Steosumit/loc-based-attendance"
                 target="_blank"
-                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5]"
+                class="block group p-5 rounded-sm border border-stone-300 hover:border-rose-400 hover:bg-white transition-all bg-[#faf8f5] reveal delay-100"
               >
                 <h3 class="font-serif font-bold text-stone-900 group-hover:text-rose-800 mb-2 flex items-center gap-2">
                   loc-based-attendance{" "}
@@ -135,13 +185,13 @@ app.get("/", (c) => {
             </div>
           </section>
           
-          <section class="mb-10">
+          <section class="mb-10 reveal">
             <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-6">
               My Experience
             </h2>
 
             <div class="space-y-8 border-l-2 border-stone-200 pl-4 ml-2">
-              <article class="relative">
+              <article class="relative reveal delay-100">
                 <div class="absolute -left-[23px] top-1.5 w-3 h-3 bg-rose-700 rounded-full border-2 border-[#faf8f5]"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
                   <h3 class="text-xl font-serif font-bold text-stone-900">
@@ -167,7 +217,7 @@ app.get("/", (c) => {
                 </ul>
               </article>
               
-              <article class="relative">
+              <article class="relative reveal delay-200">
                 <div class="absolute -left-[23px] top-1.5 w-3 h-3 bg-stone-300 rounded-full border-2 border-[#faf8f5]"></div>
                 <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-2">
                   <h3 class="text-xl font-serif font-bold text-stone-900">
@@ -194,7 +244,7 @@ app.get("/", (c) => {
                 </ul>
               </article>
               
-              <article class="relative">
+              <article class="relative reveal delay-300">
                 <div class="absolute -left-[23px] top-1.5 w-3 h-3 bg-stone-300 rounded-full border-2 border-[#faf8f5]"></div>
                 <div class="flex flex-col md:flex-row md:items-baseline mb-2">
                   
@@ -225,12 +275,12 @@ app.get("/", (c) => {
             </div>
           </section>
 
-          <section>
+          <section class="reveal">
             <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-4">
               Certifications & Fun Facts
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-stone-700">
-              <div class="bg-white p-5 rounded-sm border border-stone-200 shadow-sm">
+              <div class="bg-white p-5 rounded-sm border border-stone-200 shadow-sm reveal delay-100">
                 <h3 class="font-serif font-bold text-stone-900 mb-3 border-b border-stone-100 pb-2">
                   Certifications
                 </h3>
@@ -241,7 +291,7 @@ app.get("/", (c) => {
                   <li>Leadership as a Practice by <a class="text-rose-700 hover:text-rose-900 underline decoration-rose-200 underline-offset-4" href="https://tiltingfutures.org/global-citizen-year-fellowship/">Tilting Futures</a>(Fellowship)</li>
                 </ul>
               </div>
-              <div class="bg-white p-5 rounded-sm border border-stone-200 shadow-sm">
+              <div class="bg-white p-5 rounded-sm border border-stone-200 shadow-sm reveal delay-200">
                 <h3 class="font-serif font-bold text-stone-900 mb-3 border-b border-stone-100 pb-2">
                   Beyond the Code
                 </h3>
@@ -254,6 +304,38 @@ app.get("/", (c) => {
             </div>
           </section>
         </main>
+        <script dangerouslySetInnerHTML={{__html: `
+          document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add('reveal-active');
+                  // Stop observing once revealed so it doesn't re-animate on scroll up
+                  observer.unobserve(entry.target); 
+                }
+              });
+            }, {
+              threshold: 0.1, // Triggers when 10% of the element is visible
+              rootMargin: "0px 0px -50px 0px" // Adds a slight buffer before triggering
+            });
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+              observer.observe(el);
+            });
+
+            // Vanish overlay on scroll
+            const overlay = document.getElementById('scroll-overlay');
+            if (overlay) {
+              window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                  overlay.style.opacity = '0';
+                } else {
+                  overlay.style.opacity = '1';
+                }
+              });
+            }
+          });
+        `}} />
       </body>
     </html>,
   );
