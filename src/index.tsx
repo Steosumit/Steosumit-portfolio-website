@@ -54,6 +54,8 @@ app.get("/", (c) => {
           .anim-delay-100 { animation-delay: 150ms; }
           .anim-delay-200 { animation-delay: 300ms; }
           .anim-delay-300 { animation-delay: 450ms; }
+          .anim-delay-400 { animation-delay: 600ms; }
+          
 
         `}} />
       </head>
@@ -66,8 +68,8 @@ app.get("/", (c) => {
               Sumit Gupta
             </h1>
             {/* Subtitle is italicized like a journal entry */}
-            <pre class="text-xl font-serif italic text-rose-800 mb-4">
-              Cybersecurity Student
+            <pre class="text-xl font-serif text-rose-800 mb-4">
+              Curious Product-driven Engineer
             </pre>
           </header>
           
@@ -78,9 +80,17 @@ app.get("/", (c) => {
               <a
                 href="https://github.com/Steosumit/Steosumit/blob/main/Resume.pdf"
                 target="_blank"
-                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5 bounce anim-delay-100"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5 bounce anim-delay-400"
               >
                 📄 Resume
+              </a>
+              <span class="text-stone-300">•</span>
+              <a
+                href="https://github.com/Steosumit/"
+                target="_blank"
+                class="hover:text-rose-700 transition-colors flex items-center gap-1 border-b border-transparent hover:border-rose-700 pb-0.5 bounce anim-delay-100"
+              >
+                👨🏾‍💻 GitHub
               </a>
               <span class="text-stone-300">•</span>
               <a
@@ -98,6 +108,8 @@ app.get("/", (c) => {
               >
                 ✍️ Medium
               </a>
+              
+              
             </div>
           </section>
           
@@ -225,7 +237,7 @@ app.get("/", (c) => {
             <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-6">
               My Experience
             </h2>
-
+            
             <div class="space-y-8 border-l-2 border-stone-200 pl-4 ml-2">
               <article class="relative reveal delay-100">
                 <div class="absolute -left-[23px] top-1.5 w-3 h-3 bg-rose-700 rounded-full border-2 border-[#faf8f5]"></div>
@@ -338,6 +350,20 @@ app.get("/", (c) => {
                 </ul>
               </div>
             </div>
+            
+            <section class="reveal delay-300 m-4">
+              <h2 class="text-2xl font-serif font-bold text-stone-900 border-b-2 border-stone-300 pb-2 mb-4">
+                Additionals
+              </h2>
+              
+              <h3 class="text-xl font-serif font-bold text-stone-900">
+                My Software Catalog
+              </h3>
+              
+              <div class="iframely-embed m-4 "><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://www.softpedia.com/publisher/Sumit-Gupta-105305.html" data-iframely-url="https://iframely.net/ofGWaK8S?theme=dark"></a></div></div><script async src="https://iframely.net/embed.js"></script>
+              <div class="iframely-embed m-4 "><div class="iframely-responsive" style="height: 140px; padding-bottom: 0;"><a href="https://sites.google.com/view/appsoch/our-apps" data-iframely-url="https://iframely.net/zQoKbPfO?card=small&theme=dark"></a></div></div><script async src="https://iframely.net/embed.js"></script>
+              
+            </section>
           </section>
         </main>
         <script dangerouslySetInnerHTML={{__html: `
